@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <!-- 内存泄露解决：在项目的web.xml中添加一个Listener（必须让此Listener成为web.xml中的第一个Listener，否则不起作用
+    这样部署时的内存泄漏就解决了。
+    注意：
+    1、添加这个Listener后，默认在tomcat关闭5s后jvm会进行内存回收的操作，所以在关闭后的5s内，再次启动tomcat，可能会存在问题，导致启动无效（如果出现tomcat重启后日志显示正常但是服务器不工作的话考虑一下是不是这个问题）。
+    2、这个Listener只解决部署的内存泄漏，其他问题（如jdbc等）产生的内存泄漏还需要自己解决。
+  -->
+  <!--<listener>
+    <listener-class>se.jiderhamn.classloader.leak.prevention.ClassLoaderLeakPreventorListener</listener-class>
+  </listener>-->
+</web-app>
+
